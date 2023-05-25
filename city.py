@@ -12,13 +12,14 @@ class City:
         return distance
 
     def TSP_Narest_Neighbor(self,cities,matriz):
-        num_cit = len(cidad)
-        visited = [false] * num_cit
+        num_cit = len(cities)
+        visited = [False] * num_cit
+        rote = []
         init_city = 0 
         visted[init_city] = True
         total = 0
-
-
+        while len(rote) < num_cit:
+              atual_city = rote[-1]
  
 
 
