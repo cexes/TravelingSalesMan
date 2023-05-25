@@ -6,11 +6,21 @@ class City:
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
-        print(self.name, self.latitude,self.longitude)
 
-    def calculate_distancies(self,citie1,citie2):
-        distance = math.sqrt((citie2[0] - citie1[0]) ** 2 + (citie2[1] - citie1[1]) ** 2)
+    def calculate_distancies(self,lat1,lon1,lat2,lon2):
+        distance = math.sqrt((lat2 - lat1) ** 2 + (lon2 - lon1) ** 2) 
         return distance
+
+    def TSP_Narest_Neighbor(self,cities,matriz):
+        num_cit = len(cidad)
+        visited = [false] * num_cit
+        init_city = 0 
+        visted[init_city] = True
+        total = 0
+
+
+ 
+
 
     def calculate_adj(cities):
          num_cities = len(cities)

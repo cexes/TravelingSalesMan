@@ -3,7 +3,7 @@ import requests
 
 class main:
 
-   cities = [ "Acre" , "Bahia ","Sergipe"]
+   cities = [ "Itaquera" , "Bahia ","Tatuape"]
    lat = []
    lon = []
 
@@ -16,6 +16,7 @@ class main:
        longitude = float(data[0]['lon'])
        lon.append(longitude)
 
-   for i in range(len(cities)):
-       c = City(cities[i],lat[i],lon[i])
-  
+   for i in range(len(cities) -1):
+       c = City( cities[i], lat[i], lon[i]) 
+       distance =  c.calculate_distancies (lat[i] , lon[i], lat[i+1], lon[i+1])
+       print("Distância entre", c.name, "e", cities[i+1], ":", distance)
