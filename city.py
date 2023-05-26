@@ -79,16 +79,13 @@ def TSP_Minimum_Spanning_Tree(cities, adjacency_matrix):
 
     return total_cost, tree_edges
 
-# Exemplo de cidades com coordenadas manualmente definidas
-city_names = ["Itaquera,","Bahia","Tatuape"]
-# Obter as coordenadas das cidades usando a API do OpenStreetMap
+city_names = ["Itaquera,","Bahia","Tatuape","Guarulhos","Patriarca"]
 cities = []
 for city_name in city_names:
     latitude, longitude = get_coordinates(city_name)
     city = City(city_name, latitude, longitude)
     cities.append(city)
 
-# Calcular a matriz de adjacências usando a distância Euclidiana
 adjacency_matrix = {}
 for city in cities:
     adjacency_matrix[city] = {}
@@ -97,19 +94,14 @@ for city in cities:
             distance = city.calculate_distance(other_city)
             adjacency_matrix[city][other_city] = distance
 
-# Execute o algoritmo TSP - Vizinho mais Próximo
 cost_nn, path_nn = TSP_Nearest_Neighbor(cities, adjacency_matrix)
-
-# Imprima o menor custo e o melhor caminho encontrado usando o Vizinho mais Próximo
 print("Custo (Vizinho mais Próximo):", cost_nn)
 print("Melhor Caminho (Vizinho mais Próximo):")
 for city in path_nn:
     print(city.name)
 
-# Execute o algoritmo TSP - Árvore Geradora Mínima
 cost_mst, tree_edges_mst = TSP_Minimum_Spanning_Tree(cities, adjacency_matrix)
 
-# Imprima o custo e a árvore encontrada usando a Árvore Geradora Mínima
 print("Custo (Árvore Geradora Mínima):", cost_mst)
 print("Árvore (Árvore Geradora Mínima):")
 for edge in tree_edges_mst:
